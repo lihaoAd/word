@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.xp.wavesidebar.WaveSideBar
+        android:id="@+id/sideBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:chooseTextColor="@android:color/white"
+        app:textColor="#969696"
+        app:backgroundColor="#bef9b81b"
+        app:textSize="10sp"
+        app:hintTextSize="32sp"
+        app:radius="20dp"
+        app:circleRadius="24dp"/>
+
+</android.support.constraint.ConstraintLayout>
