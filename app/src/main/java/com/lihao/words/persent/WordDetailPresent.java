@@ -210,7 +210,7 @@ public class WordDetailPresent {
                                     JsonArray meansArray = partItem.get("means").getAsJsonArray();
                                     StringBuilder meansBuilder = new StringBuilder();
                                     for (int len = meansArray.size(), j = 0; j < len; j++) {
-                                        JsonPrimitive meansItem = meansArray.get(i).getAsJsonPrimitive();
+                                        JsonPrimitive meansItem = meansArray.get(j).getAsJsonPrimitive();
                                         if (j != len - 1) {
                                             meansBuilder.append(meansItem.getAsString()).append(";");
                                         } else {
