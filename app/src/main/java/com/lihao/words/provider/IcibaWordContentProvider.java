@@ -10,14 +10,15 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.lihao.words.db.IcibaeWordSQL;
 import com.lihao.words.db.WordDBHelper;
 import com.lihao.words.db.WordSQL;
 
-public class WordContentProvider extends ContentProvider {
+public class IcibaWordContentProvider extends ContentProvider {
 
     private static UriMatcher sUriMatcher;
-    public static final String HOST = "com.lihao.words.WordContentProvider";
-    public static final String PATH = WordSQL.DATABASE_TABLE;
+    public static final String HOST = "com.lihao.words.IcibaWordContentProvider";
+    public static final String PATH = IcibaeWordSQL.DATABASE_TABLE;
     public static final Uri CONNTENT_URL = Uri.parse("content://"+HOST+"/"+PATH);
 
 
@@ -39,7 +40,7 @@ public class WordContentProvider extends ContentProvider {
     @Override
     public String getType(@NonNull Uri uri) {
       if(sUriMatcher.match(uri) == 1){
-          return "vnd.android.cursor.item/vndcom.lihao.words.word";
+          return "vnd.android.cursor.item/vndcom.lihao.words.icibaWord";
       }
         return null;
     }
@@ -54,7 +55,7 @@ public class WordContentProvider extends ContentProvider {
                 readDatabase = wordDBHelper.getReadableDatabase();
                 try {
                     readDatabase.beginTransaction();
-                    cursor = readDatabase.query(WordSQL.DATABASE_TABLE,projection,selection,selectionArgs,null,null,sortOrder);
+                    cursor = readDatabase.query(IcibaeWordSQL.DATABASE_TABLE,projection,selection,selectionArgs,null,null,sortOrder);
                     readDatabase.setTransactionSuccessful();
                 }finally {
                     readDatabase.endTransaction();
@@ -76,7 +77,7 @@ public class WordContentProvider extends ContentProvider {
                 writeDatabase = wordDBHelper.getWritableDatabase();
                 try {
                     writeDatabase.beginTransaction();
-                    long id =  writeDatabase.insert(WordSQL.DATABASE_TABLE,null,values);
+                    long id =  writeDatabase.insert(IcibaeWordSQL.DATABASE_TABLE,null,values);
                     writeDatabase.setTransactionSuccessful();
 
 
@@ -106,7 +107,7 @@ public class WordContentProvider extends ContentProvider {
                 writeDatabase = wordDBHelper.getWritableDatabase();
                 try {
                     writeDatabase.beginTransaction();
-                    rows =  writeDatabase.delete(WordSQL.DATABASE_TABLE,selection,selectionArgs);
+                    rows =  writeDatabase.delete(IcibaeWordSQL.DATABASE_TABLE,selection,selectionArgs);
                     writeDatabase.setTransactionSuccessful();
                     if(rows > 0){
                         ContentResolver contentResolver = getContext().getContentResolver();
@@ -132,7 +133,7 @@ public class WordContentProvider extends ContentProvider {
                 writeDatabase = wordDBHelper.getWritableDatabase();
                 try {
                     writeDatabase.beginTransaction();
-                    rows =  writeDatabase.update(WordSQL.DATABASE_TABLE,values,selection,selectionArgs);
+                    rows =  writeDatabase.update(IcibaeWordSQL.DATABASE_TABLE,values,selection,selectionArgs);
                     writeDatabase.setTransactionSuccessful();
                     if(rows > 0){
                         ContentResolver contentResolver = getContext().getContentResolver();

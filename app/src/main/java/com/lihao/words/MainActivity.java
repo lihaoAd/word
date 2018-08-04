@@ -25,6 +25,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.lihao.words.db.WordDBHelper;
 import com.lihao.words.db.WordSQL;
 import com.lihao.words.utils.FileUtil;
 import com.lihao.words.utils.SoftInputUtils;
@@ -157,8 +158,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void backUpDB(){
-        File dbFile = getDatabasePath(WordSQL.DATABASE_NAME);
-        File dest = new File(Environment.getExternalStorageDirectory(),WordSQL.DATABASE_NAME);
+        File dbFile = getDatabasePath(WordDBHelper.DATABASE_NAME);
+        File dest = new File(Environment.getExternalStorageDirectory(),WordDBHelper.DATABASE_NAME);
         try {
             FileUtil.copy(dbFile,dest);
             Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),"备份成功，"+dest.getPath(), Snackbar.LENGTH_LONG);

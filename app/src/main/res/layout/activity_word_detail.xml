@@ -5,49 +5,157 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WordDetailActivity"
-    >
+    android:background="#E5E6E0">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        app:popupTheme="@style/AppTheme.PopupOverlay">
-    </android.support.v7.widget.Toolbar>
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
     <TextView
         android:id="@+id/textWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textIsSelectable="true"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
+        android:textIsSelectable="true"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#373839"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        tools:text="42342342"/>
+        tools:text="42342342" />
+
+    <RelativeLayout
+        android:id="@+id/layoutPh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/textWord">
+        <ImageView
+            android:id="@+id/imHornEn"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/horn_dict"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/textHornPhEn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#838382"
+            android:layout_toRightOf="@id/imHornEn"
+            android:layout_centerVertical="true"
+            />
+
+        <ImageView
+            android:id="@+id/imHornAm"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/horn_dict"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/textHornPhEn"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/textHornPhAm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#838382"
+            android:layout_toRightOf="@id/imHornAm"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+
+        android:id="@+id/wordMeaning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/layoutPh">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/right_cursor" />
+        <TextView
+            android:id="@+id/textWordExplain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自释义:"
+            android:textColor="#24ACDC"
+            />
+    </LinearLayout>
+
 
     <TextView
-        android:id="@+id/textWordExplain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        app:layout_constraintTop_toBottomOf="@id/textWord"
-        android:text="解释:"
-        />
-    <TextView
         android:id="@+id/textWordMeaning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingRight="16dp"
+        android:layout_marginRight="40dp"
+        android:textIsSelectable="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@drawable/layer_list_dict_item_back"
+        app:layout_constraintTop_toBottomOf="@+id/wordMeaning"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/wordIcibaMeaning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/textWordExplain"
-        tools:text="42342342"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/textWordMeaning">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/right_cursor" />
+        <TextView
+            android:id="@+id/textIcbaWordExplain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="基本释义:"
+            android:textColor="#24ACDC"
+            />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textIcibaWordMeaning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:textIsSelectable="true"
+        android:layout_marginTop="10dp"
         android:paddingLeft="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         android:paddingRight="16dp"
+        android:layout_marginRight="40dp"
+        android:visibility="gone"
+        android:textIsSelectable="true"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@drawable/layer_list_dict_item_back"
+        app:layout_constraintTop_toBottomOf="@+id/wordIcibaMeaning"
         />
+
+
+
 
 
 </android.support.constraint.ConstraintLayout>

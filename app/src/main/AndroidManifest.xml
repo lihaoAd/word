@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -28,8 +29,13 @@
             android:authorities="com.lihao.words.WordContentProvider"
             android:exported="false" />
 
+        <provider
+            android:name=".provider.IcibaWordContentProvider"
+            android:authorities="com.lihao.words.IcibaWordContentProvider"
+            android:exported="false" />
+
         <activity android:name=".WordSaveActivity" />
-        <activity android:name=".WordDetailActivity"></activity>
+        <activity android:name=".WordDetailActivity"/>
     </application>
 
 </manifest>

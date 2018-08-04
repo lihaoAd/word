@@ -8,8 +8,6 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.Toast;
-
 import com.lihao.words.helper.WordHelper;
 import com.lihao.words.utils.SoftInputUtils;
 

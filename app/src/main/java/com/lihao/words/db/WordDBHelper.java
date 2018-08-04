@@ -6,13 +6,19 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class WordDBHelper extends SQLiteOpenHelper {
 
+    public static final int DATABASE_VERSION_1            = 1;
+    public static final int DATABASE_VERSION_3            = 3;
+    public static final String DATABASE_NAME              = "words.db";
+
+
     public WordDBHelper(Context context) {
-        super(context, WordSQL.DATABASE_NAME, null, WordSQL.DATABASE_VERSION);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION_3);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(WordSQL.CREATE_TABLE_WORD);
+        db.execSQL(WordSQL.CREATE_TABLE);
+        db.execSQL(IcibaeWordSQL.CREATE_TABLE);
     }
 
     @Override
@@ -22,6 +28,8 @@ public class WordDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        if(oldVersion < DATABASE_VERSION_3){
+            db.execSQL(IcibaeWordSQL.CREATE_TABLE);
+        }
     }
 }
