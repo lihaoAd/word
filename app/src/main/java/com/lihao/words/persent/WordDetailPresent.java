@@ -230,7 +230,7 @@ public class WordDetailPresent {
                             view.showphAm(icibaWord.phAm);
                             view.showphEn(icibaWord.phEn);
                             view.showMeans(icibaWord.parts);
-                        } catch (IOException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     });
